@@ -1,8 +1,264 @@
 <!DOCTYPE html>
 <html lang="ko">
-<body class="bg-stone-50 text-stone-800 antialiased selection:bg-blue-100 selection:text-blue-900">
-홈이당~~~ <br>
-   아직이당  <br>
-  기둘리 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>독도: 아름다운 우리 땅 - 공식 랜딩 페이지</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #fafaf9; /* Stone 50 */
+            color: #292524; /* Stone 900 */
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            height: 300px;
+            max-height: 350px;
+        }
+
+        .nav-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    <!-- Chosen Palette: Ocean Blue & Warm Stone (Sea and Island theme) -->
+    <!-- Application Structure Plan: 
+         1. Hero Section: Emotional entry point.
+         2. Navigation Hub: Three descriptive cards linking to 02.html, 03.html, and 04.html.
+         3. Geographic Data Section: Distance comparison chart.
+         4. Footer: Links for home and all sub-pages.
+    -->
+    <!-- Visualization & Content Choices:
+         - Added a third Navigation Card for 'Opinion Collection' linking to 04.html.
+         - Updated the grid layout to accommodate three items.
+         - Confirmation: NO SVG graphics used. NO Mermaid JS used.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-black text-blue-900 flex items-center tracking-tighter">
+                <span class="mr-2 text-2xl">🇰🇷</span> 독도: 동해의 진실
+            </a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="02.html" class="hover:text-blue-700 transition">역사 탐험</a>
+                <a href="03.html" class="hover:text-blue-700 transition">핵심 용어</a>
+                <a href="04.html" class="hover:text-blue-700 transition">의견 수렴</a>
+                <a href="#about" class="hover:text-blue-700 transition">지리 정보</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 md:pt-48 md:pb-32 hero-gradient text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight fade-in">
+                동해의 시작,<br><span class="text-blue-200">우리의 고유 영토 독도</span>
+            </h1>
+            <p class="text-lg md:text-xl text-blue-100 max-w-2xl mx-auto mb-10 font-light leading-relaxed fade-in" style="animation-delay: 0.2s">
+                대한민국의 아침을 가장 먼저 맞이하는 섬. 수천 년의 역사와 기록이 증명하는 우리 땅 독도의 진실된 이야기를 만나보세요.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 fade-in" style="animation-delay: 0.4s">
+                <a href="02.html" class="px-8 py-4 bg-white text-blue-900 rounded-full font-bold text-lg hover:bg-blue-50 transition shadow-lg">역사 기록 탐험하기</a>
+                <a href="04.html" class="px-8 py-4 bg-blue-800 text-white border border-blue-400 rounded-full font-bold text-lg hover:bg-blue-700 transition shadow-lg">참여 및 의견 남기기</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Hub -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-20">
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Link to 02.html -->
+            <a href="02.html" class="nav-card bg-white p-8 rounded-3xl shadow-xl border border-stone-100 flex flex-col items-start text-left">
+                <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+                    <span class="text-3xl">📜</span>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-stone-900">01. 독도의 역사</h3>
+                <p class="text-stone-500 mb-6 leading-relaxed text-sm">
+                    삼국시대부터 대한제국까지 독도를 지켜온 수많은 증거와 인물들의 발자취를 확인하세요.
+                </p>
+                <span class="mt-auto text-blue-600 font-bold text-sm flex items-center">
+                    자세히 보기 <span class="ml-2">→</span>
+                </span>
+            </a>
+
+            <!-- Link to 03.html -->
+            <a href="03.html" class="nav-card bg-white p-8 rounded-3xl shadow-xl border border-stone-100 flex flex-col items-start text-left">
+                <div class="w-14 h-14 bg-stone-100 rounded-2xl flex items-center justify-center mb-6">
+                    <span class="text-3xl">📖</span>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-stone-900">02. 핵심 용어 사전</h3>
+                <p class="text-stone-500 mb-6 leading-relaxed text-sm">
+                    명칭 유래, 고문서 등 독도 주권을 이해하기 위해 꼭 알아야 할 키워드들을 정리했습니다.
+                </p>
+                <span class="mt-auto text-blue-600 font-bold text-sm flex items-center">
+                    자세히 보기 <span class="ml-2">→</span>
+                </span>
+            </a>
+
+            <!-- Link to 04.html -->
+            <a href="04.html" class="nav-card bg-white p-8 rounded-3xl shadow-xl border border-stone-100 flex flex-col items-start text-left">
+                <div class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center mb-6">
+                    <span class="text-3xl">✍️</span>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-stone-900">03. 의견 수렴</h3>
+                <p class="text-stone-500 mb-6 leading-relaxed text-sm">
+                    독도 교육 플랫폼에 대한 여러분의 소중한 의견을 들려주세요. 더 나은 서비스를 위해 노력하겠습니다.
+                </p>
+                <span class="mt-auto text-emerald-600 font-bold text-sm flex items-center">
+                    의견 남기기 <span class="ml-2">→</span>
+                </span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Geographic Proximity Section (Data Viz) -->
+    <section id="about" class="py-24 bg-stone-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-6">
+                    <h2 class="text-3xl md:text-4xl font-black tracking-tight text-blue-900">
+                        지리적 증거:<br>가장 가까운 곳에 우리가 있습니다
+                    </h2>
+                    <p class="text-stone-600 text-lg leading-relaxed">
+                        세종실록지리지는 이미 15세기에 독도와 울릉도의 거리가 가까워 "날씨가 맑으면 서로 바라볼 수 있다"고 기록했습니다. 실제 거리 측정 결과도 대한민국 울릉도가 일본의 오키 제도보다 훨씬 가깝다는 것을 명확히 보여줍니다.
+                    </p>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200">
+                        <h4 class="font-bold text-stone-800 mb-4 flex items-center">
+                            <span class="mr-2">📍</span> 주요 지점간 거리 비교 (km)
+                        </h4>
+                        <div class="chart-container">
+                            <canvas id="distanceChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-blue-900 rounded-3xl aspect-square flex flex-col items-center justify-center p-8 text-white shadow-2xl">
+                        <div class="text-6xl mb-6">🌏</div>
+                        <h3 class="text-3xl font-bold mb-4">독도의 위치</h3>
+                        <div class="space-y-4 text-center">
+                            <div class="bg-blue-800/50 p-4 rounded-xl">
+                                <span class="block text-blue-300 text-xs uppercase font-black mb-1">동도 (Dongdo)</span>
+                                <span class="text-xl font-mono">북위 37° 14′ 26.8″<br>동경 131° 52′ 10.4″</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-blue-800/50 p-4 rounded-xl">
+                                    <span class="block text-blue-300 text-xs font-black uppercase mb-1">섬의 구성</span>
+                                    <span class="text-2xl font-bold">2개</span>
+                                    <span class="block text-xs text-blue-200 mt-1">동도와 서도</span>
+                                </div>
+                                <div class="bg-blue-800/50 p-4 rounded-xl">
+                                    <span class="block text-blue-300 text-xs font-black uppercase mb-1">부속 도서</span>
+                                    <span class="text-2xl font-bold">89개</span>
+                                    <span class="block text-xs text-blue-200 mt-1">작은 암초들</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-stone-500 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div>
+                    <span class="text-2xl font-black text-white">독도: 동해의 진실</span>
+                    <p class="mt-2 text-sm max-w-sm">
+                        대한민국의 고유 영토인 독도를 올바르게 이해하고 기억하기 위해 제작된 인터랙티브 교육 플랫폼입니다.
+                    </p>
+                </div>
+                <div class="flex space-x-6 text-sm">
+                    <a href="02.html" class="hover:text-white transition">역사</a>
+                    <a href="03.html" class="hover:text-white transition">용어 사전</a>
+                    <a href="04.html" class="hover:text-white transition font-bold text-emerald-500">의견 수렴</a>
+                    <a href="index.html" class="hover:text-white transition">홈으로</a>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-stone-800 text-center text-xs">
+                &copy; 2024 독도 교육 가이드. All records are based on historical facts.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.onload = function() {
+            const ctx = document.getElementById('distanceChart').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['울릉도 → 독도', '오키 제도 → 독도'],
+                    datasets: [{
+                        label: '거리 (km)',
+                        data: [87.4, 157.5],
+                        backgroundColor: ['#1e3a8a', '#d6d3d1'],
+                        borderRadius: 12,
+                        barThickness: 40
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.parsed.x + ' km';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            grid: { display: false },
+                            ticks: { font: { size: 12 } }
+                        },
+                        y: {
+                            grid: { display: false },
+                            ticks: { 
+                                font: { size: 14, weight: 'bold' },
+                                color: '#444'
+                            }
+                        }
+                    }
+                }
+            });
+        };
+    </script>
 </body>
 </html>
